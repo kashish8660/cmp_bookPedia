@@ -40,7 +40,7 @@ fun App() {
             navController = navController,
             startDestination = Route.BookGraph
         ) {
-            navigation<Route.BookGraph>(
+            navigation<Route.BookGraph>( //lets you group screens under a nested graph
                 startDestination = Route.BookList
             ) {
                 composable<Route.BookList>(
@@ -58,8 +58,8 @@ fun App() {
                     BookListScreenRoot(
                         viewModel = viewModel,
                         onBookClick = { book ->
-                            selectedBookViewModel.onSelectBook(book)
-                            navController.navigate(
+                            selectedBookViewModel.onSelectBook(book) //Setting book details in BookDetailScreenRoot
+                            navController.navigate( //Navigating to BookDetailScreenRoot with
                                 Route.BookDetail(book.id)
                             )
                         }
